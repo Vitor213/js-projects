@@ -1,0 +1,96 @@
+/* Reset básico e centralização */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh; /* melhor que 100vh em mobile */
+  background-color: hsl(0, 0%, 95%);
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* A calculadora */
+.calculadora {
+  background-color: hsl(0, 0%, 15%);
+  border-radius: 24px; /* mais moderno */
+  width: min(90vw, 420px); /* cresce até 420px, mas respeita a tela */
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+}
+
+/* Display */
+#display {
+  width: 100%;
+  padding: 1.5rem 2rem;
+  font-size: clamp(2.5rem, 10vw, 4rem);
+  text-align: left;
+  border: none;
+  background-color: hsl(0, 0%, 18%);
+  color: white;
+  font-weight: 300;
+  letter-spacing: -1px;
+}
+
+/* Grid dos botões */
+#keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px; /* menor que 10px em telas pequenas */
+  padding: 1.5rem;
+}
+
+/* Botões */
+button {
+  aspect-ratio: 1 / 1;
+  border-radius: 999px;
+  border: none;
+  background-color: hsl(0, 0%, 28%);
+  color: white;
+  font-size: clamp(1.6rem, 5vw, 2.2rem);
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.12s ease;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background-color: hsl(0, 0%, 38%);
+}
+
+button:active {
+  background-color: hsl(0, 0%, 48%);
+  transform: scale(0.94);
+}
+
+.operador-btn {
+  background-color: hsl(30, 90%, 55%);
+}
+
+.operador-btn:hover {
+  background-color: hsl(30, 90%, 65%);
+}
+
+.operador-btn:active {
+  background-color: hsl(30, 90%, 75%);
+}
+
+/* Botão especial (ex: =, C, etc) - opcional */
+button[data-special="true"] {
+  background-color: hsl(210, 70%, 55%);
+}
+
+button[data-special="true"]:hover {
+  background-color: hsl(210, 70%, 65%);
+}
+
+@media (max-width: 380px) {
+  #keys {
+    gap: 8px;
+    padding: 1rem;
+  }
+
+  #display {
+    padding: 1rem 1.5rem;
+  }
+}

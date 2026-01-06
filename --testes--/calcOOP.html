@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const calculadora = {
+        num1: 0,
+        num2: 0,
+        operação: "",
+        resultado: null,
+      };
+
+      const soma = (a, b) => a + b;
+      const subtração = (a, b) => a - b;
+      const multiplicação = (a, b) => a * b;
+      const divisão = (a, b) => (b !== 0 ? a / b : "Erro: Divisão por zero");
+
+      function iniciarCalculadora() {
+        const { num1, num2, operação } = calculadora;
+
+        calculadora.num1 = Number(prompt("Digite o primeiro numero:"));
+        calculadora.num2 = Number(prompt("Digite o segundo numero:"));
+        calculadora.operação = prompt("Digite a operação (+, -, *, /):");
+
+        const operações = {
+          "+": soma,
+          "-": subtração,
+          "*": multiplicação,
+          "/": divisão,
+        };
+
+        const funcao = operações[calculadora.operação];
+
+        if (funcao) {
+          calculadora.resultado = funcao(calculadora.num1, calculadora.num2);
+          alert("Resultado: " + calculadora.resultado);
+        } else {
+          alert(
+            "Operação inválida. Por favor, insira um símbolo válido (+, -, *, /)."
+          );
+        }
+      }
+      iniciarCalculadora();
+    </script>
+  </body>
+</html>

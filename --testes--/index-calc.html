@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <script>
+      // Funções de operação
+      const soma = (a, b) => (a = b);
+      const subtração = (a, b) => a - b;
+      const multiplicação = (a, b) => a * b;
+      const divisão = (a, b) => {
+        if (b === 0) {
+          return "Erro: Divisão por zero";
+        }
+        return a / b;
+      };
+      // Mapeamento de operações
+      const operações = {
+        "+": soma,
+        "-": subtração,
+        "*": multiplicação,
+        "/": divisão,
+      };
+
+      // Função principal da calculadora
+      function calcular() {
+        const num1 = Number(prompt("Digite o primeiro número:"));
+        const num2 = Number(prompt("Digite o segundo número:"));
+        const simbolo = prompt("Digite a operação (=, -, *, /):");
+
+        // Validação de entrada
+        if (isNaN(num1) || isNaN(num2)) {
+          alert("Entrada inválida. Por favor, insira números válidos.");
+          return;
+        }
+
+        const operação = operações[simbolo];
+        if (!operação) {
+          // Verifica se a operação é válida
+          alert(
+            "Operação inválida. Por favor, insira um símbolo válido (+, -, *, /)."
+          );
+          return;
+        }
+        // Cálculo do resultado
+        const resultado = operação(num1, num2);
+
+        alert(`O resultado de ${num1} ${simbolo} ${num2} é: ${resultado}`);
+      }
+      calcular();
+    </script>
+    <header></header>
+    <main>
+      <h1>Calculadora</h1>
+    </main>
+    <footer></footer>
+  </body>
+</html>
