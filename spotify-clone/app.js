@@ -19,6 +19,7 @@ let nomeDaMusica = document.querySelector(".description h2");
 let nomeArtista = document.querySelector(".description i");
 
 renderizarMusica(indexMusica);
+musica.addEventListener("loadeddata", duration);
 
 document.querySelector(".btn-play").addEventListener("click", tocarMusica);
 
@@ -77,4 +78,8 @@ function renderizarMusica(index) {
     imagem.src = musicas[index].img;
     duracaoMusica.textContent = segundoParaMinutos(Math.floor(musica.duration));
   });
+}
+function duration() {
+  let duracaoMusica = document.querySelector(".fim");
+  duracaoMusica.textContent = segundoParaMinutos(Math.floor(musica.duration));
 }
